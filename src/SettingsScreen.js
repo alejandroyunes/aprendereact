@@ -1,12 +1,40 @@
 import React, { Component } from "react";
-import { Button, View, Text, StyleSheet } from "react-native";
+import { ImageBackground,  StyleSheet, Dimensions } from "react-native";
+const cardImage = require("./Media/background.png")
+
+import {
+  Container,
+  Header,
+  Title,
+  Button,
+  Icon,
+  Left,
+  Right,
+  Body,
+  StyleProvider,
+  Text
+} from "native-base";
+
 
 export default class SettingsScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>just a text for settingsscreen</Text>
-      </View>
+      <Container>
+        <ImageBackground
+          source={cardImage}
+          style={{
+            width: Dimensions.get("window").width,
+            height: Dimensions.get("window").height
+          }}
+        >
+
+          
+          <Text>
+            just a text for settingsscreenscreenscreenscreenscreenscreen screen
+            screen screen screenscreenscreenscreenscreen
+          </Text>
+        </ImageBackground>
+      </Container>
     );
   }
 }
