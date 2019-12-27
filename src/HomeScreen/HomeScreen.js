@@ -24,19 +24,16 @@ import material from "../native-base-theme/variables/material";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 
-
-import styles from "../styles/styles"
-
+import HeaderComponent from "../Components/Header/HeaderComponent"
 const cardImage = require("../Media/background.png");
 
-export default class App extends React.Component {
+export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isReady: false
-    };
+    };3
   }
-
 
   async componentDidMount() {
     await Font.loadAsync({
@@ -53,8 +50,7 @@ export default class App extends React.Component {
     }
 
     return (
-     
-        <StyleProvider style={getTheme(material)}>
+      <StyleProvider style={getTheme(material)}>
         <Container>
           <ImageBackground
             source={cardImage}
@@ -63,25 +59,7 @@ export default class App extends React.Component {
               height: Dimensions.get("window").height
             }}
           >
-            <Header style={{marginTop: 20}}>
-              <Left>
-                <Button transparent>
-                  <Icon name="menu"
-                  onPress={() => this.props.navigation.openDrawer()} />
-                </Button>
-              </Left>
-              <Body>
-                <Title>Aprende React</Title>
-              </Body>
-              <Right>
-                <Button transparent>
-                  <Icon
-                    name="menu"
-                    onPress={() => this.props.navigation.openDrawer()}
-                  />
-                </Button>
-              </Right>
-            </Header>
+            <HeaderComponent />
           </ImageBackground>
         </Container>
       </StyleProvider>

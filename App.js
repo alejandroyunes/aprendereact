@@ -1,36 +1,20 @@
 import * as React from "react";
 import {
-  Button,
+
   View,
-  Text,
-  StyleSheet,
   SafeAreaView,
-  ScrollView,
-  Dimensions,
   Image
 } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
 import { createDrawerNavigator, DrawerItems } from "react-navigation-drawer";
+import NavigationService from "./src/Navigation/NavigationService";
 
 import HomeScreen from "./src/HomeScreen/HomeScreen";
 import SettingsScreen from "./src/SettingsScreen";
+import HeaderComponent from "./src/Components/Header/HeaderComponent"
 
-export default class App extends React.Component {
-  render() {
-    return <AppContainer />;
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    height: 150
-  }
-});
 
 const CustomDrawerComponent = props => (
   <SafeAreaView style={{ flex: 1 }}>
@@ -66,9 +50,27 @@ const stackNavigation = createStackNavigator(
     Home: HomeScreen,
     Settings: SettingsScreen
   },
+
   {
     initialRouteName: "Home"
   }
 );
 
-const AppContainer = createAppContainer(Drawer,stackNavigation);
+const AppContainer = createAppContainer(
+  Drawer,
+  stackNavigation,
+
+);
+
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <AppContainer
+        ref={navigatorRef => {
+          NavigationService.setTopLevelNavigator(navigatorRef);
+        }}
+      />
+    );
+  }
+}
