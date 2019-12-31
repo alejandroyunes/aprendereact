@@ -59,7 +59,7 @@ export default class HomeScreen extends React.Component {
               height: Dimensions.get("window").height
             }}
           >
-            <HeaderComponent />
+            <HeaderComponent Navigate={this.props.navigation} />
           </ImageBackground>
         </Container>
       </StyleProvider>

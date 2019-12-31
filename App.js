@@ -12,7 +12,7 @@ import { createDrawerNavigator, DrawerItems } from "react-navigation-drawer";
 import NavigationService from "./src/Navigation/NavigationService";
 
 import HomeScreen from "./src/HomeScreen/HomeScreen";
-import SettingsScreen from "./src/SettingsScreen";
+import SettingsScreen from "./src/SettingsScreen/SettingsScreen";
 import HeaderComponent from "./src/Components/Header/HeaderComponent"
 
 
@@ -38,7 +38,7 @@ const CustomDrawerComponent = props => (
 const Drawer = createDrawerNavigator(
   {
     Home: HomeScreen,
-    Settings: SettingsScreen
+    Settings: SettingsScreen,
   },
   {
     contentComponent: CustomDrawerComponent
@@ -48,7 +48,7 @@ const Drawer = createDrawerNavigator(
 const stackNavigation = createStackNavigator(
   {
     Home: HomeScreen,
-    Settings: SettingsScreen
+    Settings: SettingsScreen,
   },
 
   {
